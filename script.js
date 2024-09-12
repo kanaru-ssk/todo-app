@@ -1,20 +1,24 @@
 function add() {
-  const newTaskInput = document.getElementById("new-task");
-  if (!newTaskInput.value) return;
+  const input = document.querySelector("input");
+  if (!input.value) return; // 未入力の場合スキップ
 
-  const checkbox = document.createElement("input"); // <input />
-  checkbox.setAttribute("type", "checkbox"); // <input type="checkbox" />
-  const span = document.createElement("span"); // <span></span>
-  span.append(newTaskInput.value); // <span>タスク</span>
+  // <input type="checkbox" />
+  const checkbox = document.createElement("input");
+  checkbox.setAttribute("type", "checkbox");
 
-  const newTaskElement = document.createElement("li"); // <li></li>
-  newTaskElement.append(checkbox); // <li><input type="checkbox" /></li>
-  newTaskElement.append(span); // <li><input type="checkbox" /><span>タスク</span></li>
+  // <span>タスク</span>
+  const span = document.createElement("span");
+  span.append(input.value);
 
-  // index.htmlの<ul id="tasks"></ul>の中にnewTaskElementを挿入
-  const tasksUl = document.getElementById("tasks");
-  tasksUl.append(newTaskElement);
+  // <li><input type="checkbox" /><span>タスク</span></li>
+  const li = document.createElement("li");
+  li.append(checkbox);
+  li.append(span);
+
+  // 作成した要素をindex.htmlの<ul>に挿入
+  const ul = document.querySelector("ul");
+  ul.append(li);
 
   // 入力値をクリア
-  newTaskInput.value = "";
+  input.value = "";
 }
