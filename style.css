@@ -1,0 +1,5 @@
+/* チェックされたinputの直後に続くspan要素に適用するスタイル */
+input[type="checkbox"]:checked + span {
+  text-decoration: line-through;
+  color: grey;
+}
